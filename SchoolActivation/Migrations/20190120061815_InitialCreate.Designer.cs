@@ -11,7 +11,7 @@ using System;
 namespace SchoolActivation.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190119192140_InitialCreate")]
+    [Migration("20190120061815_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,8 +204,7 @@ namespace SchoolActivation.Migrations
 
                     b.Property<int>("Football");
 
-                    b.Property<string>("FootballDistributed")
-                        .IsRequired();
+                    b.Property<string>("FootballDistributed");
 
                     b.Property<string>("ImageUrl");
 
@@ -220,72 +219,19 @@ namespace SchoolActivation.Migrations
 
                     b.Property<int>("Packs");
 
-                    b.Property<string>("Participation")
-                        .IsRequired();
+                    b.Property<string>("Participation");
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<string>("StrengthOfStudent")
-                        .IsRequired();
+                    b.Property<string>("StrengthOfStudent");
 
                     b.Property<int>("WristBand");
 
-                    b.Property<string>("WristBandDistributed")
-                        .IsRequired();
+                    b.Property<string>("WristBandDistributed");
 
                     b.HasKey("Id");
 
                     b.ToTable("Activities");
-                });
-
-            modelBuilder.Entity("SchoolActivation.Models.Feedback", b =>
-                {
-                    b.Property<int>("FeedbackId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("ContactMe");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasMaxLength(5000);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.HasKey("FeedbackId");
-
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("SchoolActivation.Models.Pie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ImageThumbnailUrl");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<bool>("IsInStock");
-
-                    b.Property<bool>("IsPieOfTheWeek");
-
-                    b.Property<string>("LongDescription");
-
-                    b.Property<string>("Name");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<string>("ShortDescription");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pies");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

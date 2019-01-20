@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using SchoolActivation.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using SchoolActivation.Models;
 
 namespace SchoolActivation
 {
-    public class Startup
+	public class Startup
     {
         public IConfiguration Configuration { get; }
 
@@ -32,8 +27,6 @@ namespace SchoolActivation
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddTransient<IActivityRepository, ActivityRepository>();
-            services.AddTransient<IPieRepository, PieRepository>();
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
             services.AddMvc();
         }

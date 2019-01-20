@@ -233,56 +233,6 @@ namespace SchoolActivation.Migrations
                     b.ToTable("Activities");
                 });
 
-            modelBuilder.Entity("SchoolActivation.Models.Feedback", b =>
-                {
-                    b.Property<int>("FeedbackId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("ContactMe");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasMaxLength(5000);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.HasKey("FeedbackId");
-
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("SchoolActivation.Models.Pie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ImageThumbnailUrl");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<bool>("IsInStock");
-
-                    b.Property<bool>("IsPieOfTheWeek");
-
-                    b.Property<string>("LongDescription");
-
-                    b.Property<string>("Name");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<string>("ShortDescription");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pies");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")

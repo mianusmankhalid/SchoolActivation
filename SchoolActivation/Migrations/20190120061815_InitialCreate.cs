@@ -23,18 +23,18 @@ namespace SchoolActivation.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     Football = table.Column<int>(nullable: false),
-                    FootballDistributed = table.Column<string>(nullable: false),
+                    FootballDistributed = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     InstituteName = table.Column<string>(nullable: false),
                     IsCanteen = table.Column<bool>(nullable: false),
                     IsCoach = table.Column<bool>(nullable: false),
                     IsFootballTeam = table.Column<bool>(nullable: false),
                     Packs = table.Column<int>(nullable: false),
-                    Participation = table.Column<string>(nullable: false),
+                    Participation = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
-                    StrengthOfStudent = table.Column<string>(nullable: false),
+                    StrengthOfStudent = table.Column<string>(nullable: true),
                     WristBand = table.Column<int>(nullable: false),
-                    WristBandDistributed = table.Column<string>(nullable: false)
+                    WristBandDistributed = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -78,42 +78,6 @@ namespace SchoolActivation.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Feedbacks",
-                columns: table => new
-                {
-                    FeedbackId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ContactMe = table.Column<bool>(nullable: false),
-                    Email = table.Column<string>(maxLength: 100, nullable: false),
-                    Message = table.Column<string>(maxLength: 5000, nullable: false),
-                    Name = table.Column<string>(maxLength: 100, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Feedbacks", x => x.FeedbackId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pies",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ImageThumbnailUrl = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true),
-                    IsInStock = table.Column<bool>(nullable: false),
-                    IsPieOfTheWeek = table.Column<bool>(nullable: false),
-                    LongDescription = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false),
-                    ShortDescription = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,12 +245,6 @@ namespace SchoolActivation.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Feedbacks");
-
-            migrationBuilder.DropTable(
-                name: "Pies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
