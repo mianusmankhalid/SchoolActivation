@@ -31,7 +31,7 @@ namespace SchoolActivation
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
-            //services.AddTransient<IPieRepository, MockPieRepository>();
+            services.AddTransient<IActivityRepository, ActivityRepository>();
             services.AddTransient<IPieRepository, PieRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
@@ -52,7 +52,7 @@ namespace SchoolActivation
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Activity}/{action=Index}/{id?}");
             });
         }
     }

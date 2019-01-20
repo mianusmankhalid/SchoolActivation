@@ -1,0 +1,144 @@
+﻿@model Activity
+
+@section jQueryScripts {
+
+	if('@Model.IsFootballTeam' === 'False')
+	{
+		$("#coach_true, #coach_false").val("").attr("disabled",true);
+	}
+	$("#team_true, #team_false").change(function(){
+		if($("#team_true").is(":checked")){
+			$("#coach_true, #coach_false").removeAttr("disabled");
+			if($("#coach_true").is(":checked")){
+				$("#coach_name, #coach_phone").removeAttr("disabled");
+				$("#coach_name").focus();
+			}
+		}
+		else if($("#team_false").is(":checked")){
+			$("#coach_true, #coach_false").val("").attr("disabled",true);
+			$("#coach_name, #coach_phone").val("").attr("disabled",true); 
+		}
+	});
+	if('@Model.IsCoach' === 'False')
+	{
+		$("#coach_name, #coach_phone").val("").attr("disabled",true);
+	}
+	$("#coach_true, #coach_false").change(function(){
+		if($("#coach_true").is(":checked")){
+			$("#coach_name, #coach_phone").removeAttr("disabled");
+			$("#coach_name").focus();
+		}
+		else if($("#coach_false").is(":checked")){
+			$("#coach_name, #coach_phone").val("").attr("disabled",true); 
+		}
+	});
+
+}
+
+<div class="row">
+	<div>
+		<!-- general form elements -->
+		<div class="box box-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Activity</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form asp-action="FinishActivity" method="post" role="form">
+				<div class="box-body">
+					<input asp-for="Id" type="hidden" />
+					<input asp-for="ActivityId" type="hidden" />
+					<input asp-for="InstituteName" type="hidden" />
+					<input asp-for="Date" type="hidden" />
+					<input asp-for="Address" type="hidden" />
+					<input asp-for="City" type="hidden" />
+					<input asp-for="Packs" type="hidden" />
+					<input asp-for="Football" type="hidden" />
+					<input asp-for="WristBand" type="hidden" />
+					<div class="form-group">
+						<label>ID</label>
+						<p>@Model.ActivityId</p>
+					</div>
+					<div class="form-group">
+						<label asp-for="StrengthOfStudent">Strength of Students</label>
+						<input asp-for="StrengthOfStudent" class="form-control" />
+						<span asp-validation-for="StrengthOfStudent" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Participation">Participation</label>
+						<input asp-for="Participation" class="form-control" />
+						<span asp-validation-for="Participation" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="WristBandDistributed">WristBand Distributed</label>
+						<input asp-for="WristBandDistributed" class="form-control" />
+						<span asp-validation-for="WristBandDistributed" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="FootballDistributed">Football Distributed</label>
+						<input asp-for="FootballDistributed" class="form-control" />
+						<span asp-validation-for="FootballDistributed" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="IsCanteen">Milo availability in Canteen</label>
+						<div class="radio">
+							<label style="padding-right: 10px">
+								<input type="radio" asp-for="IsCanteen" value="true" />
+								Yes
+							</label>
+							<label>
+								<input type="radio" asp-for="IsCanteen" value="false" />
+								No
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="IsFootballTeam">School Football Team</label>
+						<div class="radio">
+							<label style="padding-right: 10px">
+								<input type="radio" asp-for="IsFootballTeam" value="true" id="team_true" />
+								Yes
+							</label>
+							<label>
+								<input type="radio" asp-for="IsFootballTeam" value="false" id="team_false" />
+								No
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="IsCoach">School Football Team Coach</label>
+						<div class="radio">
+							<label style="padding-right: 10px">
+								<input type="radio" asp-for="IsCoach" value="true" id="coach_true" />
+								Yes
+							</label>
+							<label>
+								<input type="radio" asp-for="IsCoach" value="false" id="coach_false" />
+								No
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="CoachName">Coach Name</label>
+						<input asp-for="CoachName" class="form-control" id="coach_name" />
+						<span asp-validation-for="CoachName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="CoachPhone">Coach Phone Number</label>
+						<input asp-for="CoachPhone" class="form-control" id="coach_phone" />
+						<span asp-validation-for="CoachPhone" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-success">End Activity</button>
+				</div>
+			</form>
+		</div>
+		<!-- /.box -->
+	</div>
+</div>

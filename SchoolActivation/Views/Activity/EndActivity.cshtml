@@ -1,0 +1,45 @@
+﻿@model ActivityViewModel
+
+<h2>@Model.Title</h2>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-success">
+			<div class="box-header">
+				<h3 class="box-title">Current Activities</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="example2" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name of Institute</th>
+							<th>City</th>
+							<th>Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var activity in Model.Activities)
+						{
+							<tr>
+								<td>@activity.ActivityId</td>
+								<td>@activity.InstituteName</td>
+								<td>@activity.City</td>
+								<td>@activity.Date.ToString("dd/MM/yyyy")</td>
+								<td>
+									<a asp-controller="Activity" asp-action="FinishActivity" asp-route-id="@activity.Id">End Activity</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

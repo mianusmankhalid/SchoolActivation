@@ -1,0 +1,12 @@
+﻿@model ActivityViewModel
+
+<h2>@Model.Title</h2>
+
+@foreach (var activity in Model.Activities)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div>
+			<p>@activity.InstituteName</p>
+        </div>
+    </div>
+}

@@ -15,7 +15,8 @@ namespace SchoolActivation.Models
 
         }
 
-        public DbSet<Pie> Pies { get; set; }
+		public DbSet<Activity> Activities { get; set; }
+		public DbSet<Pie> Pies { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
 
     }

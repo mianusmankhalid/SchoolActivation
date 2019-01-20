@@ -1,0 +1,74 @@
+﻿@model Activity
+
+<div class="row">
+	<div>
+		<!-- general form elements -->
+		<div class="box box-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Activity</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form asp-action="StartActivity" method="post" role="form">
+				<div class="box-body">
+					<input asp-for="Participation" type="hidden" />
+					<input asp-for="StrengthOfStudent" type="hidden" />
+					<input asp-for="FootballDistributed" type="hidden" />
+					<input asp-for="WristBandDistributed" type="hidden" />
+					<div class="form-group">
+						<label asp-for="ActivityId">ID</label>
+						<input asp-for="ActivityId" class="form-control" />
+						<span asp-validation-for="ActivityId" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="InstituteName">Name of Institute</label>
+						<input asp-for="InstituteName" class="form-control" />
+						<span asp-validation-for="InstituteName" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Date">Date</label>
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" asp-for="Date" class="form-control pull-right" id="datepicker" />
+							<span asp-validation-for="Date" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label asp-for="Address">Address/Location</label>
+						<input asp-for="Address" class="form-control" />
+						<span asp-validation-for="Address" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="City">City</label>
+						<input asp-for="City" class="form-control" />
+						<span asp-validation-for="City" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="Packs">Packs</label>
+						<input asp-for="Packs" class="form-control" />
+						<span asp-validation-for="Packs" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="Football">Football</label>
+						<input asp-for="Football" class="form-control" />
+						<span asp-validation-for="Football" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="WristBand">Wrist Band</label>
+						<input asp-for="WristBand" class="form-control" />
+						<span asp-validation-for="WristBand" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-success">Start Activity</button>
+				</div>
+			</form>
+		</div>
+		<!-- /.box -->
+	</div>
+</div>

@@ -179,6 +179,60 @@ namespace SchoolActivation.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SchoolActivation.Models.Activity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ActivityId")
+                        .IsRequired();
+
+                    b.Property<string>("Address")
+                        .IsRequired();
+
+                    b.Property<string>("City")
+                        .IsRequired();
+
+                    b.Property<string>("CoachName");
+
+                    b.Property<string>("CoachPhone");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<int>("Football");
+
+                    b.Property<string>("FootballDistributed");
+
+                    b.Property<string>("ImageUrl");
+
+                    b.Property<string>("InstituteName")
+                        .IsRequired();
+
+                    b.Property<bool>("IsCanteen");
+
+                    b.Property<bool>("IsCoach");
+
+                    b.Property<bool>("IsFootballTeam");
+
+                    b.Property<int>("Packs");
+
+                    b.Property<string>("Participation");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<string>("StrengthOfStudent");
+
+                    b.Property<int>("WristBand");
+
+                    b.Property<string>("WristBandDistributed");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Activities");
+                });
+
             modelBuilder.Entity("SchoolActivation.Models.Feedback", b =>
                 {
                     b.Property<int>("FeedbackId")

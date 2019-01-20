@@ -10,6 +10,5 @@ namespace SchoolActivation.ViewModels
     {
         public List<Pie> Pies { get; set; }
         public string Title { get; set; }
-
     }
 }
