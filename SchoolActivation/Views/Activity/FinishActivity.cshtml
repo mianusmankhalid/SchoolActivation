@@ -4,7 +4,7 @@
 
 	if('@Model.IsFootballTeam' === 'False')
 	{
-		$("#coach_true, #coach_false").val("").attr("disabled",true);
+		$("#coach_true, #coach_false").attr("disabled",true);
 	}
 	$("#team_true, #team_false").change(function(){
 		if($("#team_true").is(":checked")){
@@ -15,13 +15,13 @@
 			}
 		}
 		else if($("#team_false").is(":checked")){
-			$("#coach_true, #coach_false").val("").attr("disabled",true);
-			$("#coach_name, #coach_phone").val("").attr("disabled",true); 
+			$("#coach_true, #coach_false").attr("disabled",true);
+			$("#coach_name, #coach_phone").attr("disabled",true); 
 		}
 	});
 	if('@Model.IsCoach' === 'False')
 	{
-		$("#coach_name, #coach_phone").val("").attr("disabled",true);
+		$("#coach_name, #coach_phone").attr("disabled",true);
 	}
 	$("#coach_true, #coach_false").change(function(){
 		if($("#coach_true").is(":checked")){
@@ -29,7 +29,7 @@
 			$("#coach_name").focus();
 		}
 		else if($("#coach_false").is(":checked")){
-			$("#coach_name, #coach_phone").val("").attr("disabled",true); 
+			$("#coach_name, #coach_phone").attr("disabled",true); 
 		}
 	});
 
@@ -50,6 +50,7 @@
 					<input asp-for="ActivityId" type="hidden" />
 					<input asp-for="InstituteName" type="hidden" />
 					<input asp-for="Date" type="hidden" />
+					<input asp-for="StartDate" type="hidden" />
 					<input asp-for="Address" type="hidden" />
 					<input asp-for="City" type="hidden" />
 					<input asp-for="Packs" type="hidden" />

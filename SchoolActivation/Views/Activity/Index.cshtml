@@ -1,12 +1,94 @@
-﻿@model ActivityViewModel
+﻿@model OverviewViewModel
 
 <h2>@Model.Title</h2>
 
-@foreach (var activity in Model.Activities)
-{
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div>
-			<p>@activity.InstituteName</p>
-        </div>
-    </div>
-}
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-success">
+			<div class="box-header">
+				<h3 class="box-title">Overview</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="overview" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>City</th>
+							<th>Total Schools</th>
+							<th>Total Strength</th>
+							<th>Total Participation</th>
+							<th>Samples Distributed</th>
+							<th>Football Distributed</th>
+							<th>Wristband Distributed</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var city in Model.Cities)
+						{
+							<tr>
+								<td>@city.City</td>
+								<td>@city.TotalSchools</td>
+								<td>@city.TotalStrength</td>
+								<td>@city.TotalParticipation</td>
+								<td>@city.SampleDistributed</td>
+								<td>@city.FootballDistributed</td>
+								<td>@city.WristbandDistributed</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-success">
+			<div class="box-header">
+				<h3 class="box-title">Inventory Report</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="inventory" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Received</th>
+							<th>Consumed</th>
+							<th>Balance</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Milo Packs</td>
+							<td>@Model.MiloPacksReceived</td>
+							<td>@Model.MiloPackDistributed</td>
+							<td>@(Model.MiloPacksReceived - Model.MiloPackDistributed)</td>
+						</tr>
+						<tr>
+							<td>Wrist Bands</td>
+							<td>@Model.WristbandReceived</td>
+							<td>@Model.WristbandDistributed</td>
+							<td>@(Model.WristbandReceived - Model.WristbandDistributed)</td>
+						</tr>
+						<tr>
+							<td>Footballs</td>
+							<td>@Model.FootballReceived</td>
+							<td>@Model.FootballDistributed</td>
+							<td>@(Model.FootballReceived - Model.FootballDistributed)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

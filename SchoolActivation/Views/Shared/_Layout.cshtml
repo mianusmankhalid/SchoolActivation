@@ -16,6 +16,8 @@
 	<link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<!-- Ionicons -->
 	<link href="~/lib/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+	<!-- DataTables -->
+	<link rel="stylesheet" href="~/lib/datatables.net-bs/css/dataTables.bootstrap.min.css">
 	<!-- Theme style -->
 	<link href="~/css/AdminLTE.min.css" rel="stylesheet" />
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -49,7 +51,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a asp-controller="Activity" asp-action="Index">Activities</a></li>
+							<li><a asp-controller="Activity" asp-action="Index">Home</a></li>
+							<li><a asp-controller="Activity" asp-action="Report">Report</a></li>
 							<li><a asp-controller="Activity" asp-action="StartActivity">Start Activity</a></li>
 							<li><a asp-controller="Activity" asp-action="EndActivity">End Activity</a></li>
 						</ul>
@@ -102,9 +105,12 @@
 	<script src="~/lib/moment/min/moment.min.js"></script>
 	<script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<!-- bootstrap datepicker -->
-	<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 	<!-- bootstrap datepicker -->
 	<script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<!-- DataTables -->
+	<script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="~/lib/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 	<!-- SlimScroll -->
 	<script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<!-- FastClick -->

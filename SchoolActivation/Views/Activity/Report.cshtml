@@ -1,0 +1,65 @@
+﻿@model ActivityViewModel
+
+<h2>@Model.Title</h2>
+
+@section jQueryScripts {
+	{
+		$('#report').DataTable()
+	}
+}
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-success">
+			<div class="box-header">
+				<h3 class="box-title">Full Report</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="report" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>City</th>
+							<th>School</th>
+							<th>Location</th>
+							<th>Start / End</th>
+							<th>Strength / Participation</th>
+							<th>Football</th>
+							<th>Wristband</th>
+							<th>Milo in Canteen</th>
+							<th>School Football Team</th>
+							<th>Coach Name Phone</th>
+							<th>Images</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var activity in Model.Activities)
+						{
+						<tr>
+							<td>1</td>
+							<td>@activity.City</td>
+							<td>@activity.InstituteName</td>
+							<td>@activity.Address</td>
+							<td>@activity.StartDate.ToShortDateString() @activity.EndDate.ToShortDateString()</td>
+							<td>@activity.StrengthOfStudent / @activity.Participation</td>
+							<td>@activity.FootballDistributed</td>
+							<td>@activity.WristBandDistributed</td>
+							<td>@(activity.IsCanteen ? "Yes" : "No")</td>
+							<td>@(activity.IsFootballTeam ? "Yes" : "No")</td>
+							<td>@(activity.IsCoach ? activity.CoachName + " " + activity.CoachPhone : "No Coach")</td>
+							<td>
+								<a asp-controller="Activity" asp-action="FinishActivity" asp-route-id="@activity.Id">View</a>
+							</td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

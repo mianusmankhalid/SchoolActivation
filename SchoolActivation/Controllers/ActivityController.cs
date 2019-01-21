@@ -2,6 +2,7 @@
 using SchoolActivation.Models;
 using SchoolActivation.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,24 +20,32 @@ namespace SchoolActivation.Controllers
 
 		public IActionResult Index()
 		{
-			var activities = _activityRepository.GetAllActivities().OrderBy(p => p.Date);
-
-			var activityViewModel = new ActivityViewModel()
+			var activities = _activityRepository.GetAllActivities().Where(a => a.EndDate.Year > 1990);
+			var specificCityCollection = activities
+				.GroupBy(l => l.City)
+				.Select(cl => new SpecificCityViewModel
+					{
+						City = cl.First().City,
+						TotalSchools = cl.Count(),
+						TotalStrength = cl.Sum(c => c.StrengthOfStudent),
+						TotalParticipation = cl.Sum(c => c.Participation),
+						SampleDistributed = cl.Sum(c => c.Packs),
+						FootballDistributed = cl.Sum(c => c.FootballDistributed),
+						WristbandDistributed = cl.Sum(c => c.WristBandDistributed),
+					}).ToList();
+			var overviewViewModel = new OverviewViewModel()
 			{
-				Activities = activities.ToList(),
-				Title = "Welcome to School Activity Program"
+				Cities = specificCityCollection,
+				Title = "Milo School Activation Program 2019",
+				MiloPacksReceived = activities.Sum(a => a.Packs),
+				MiloPackDistributed = activities.Sum(a => a.Packs),
+				FootballReceived = activities.Sum(a => a.Football),
+				FootballDistributed = activities.Sum(a => a.FootballDistributed),
+				WristbandReceived = activities.Sum(a => a.WristBand),
+				WristbandDistributed = activities.Sum(a => a.WristBandDistributed)
 			};
 
-			return View(activityViewModel);
-		}
-
-		public IActionResult Details(int id)
-		{
-			var activity = _activityRepository.GetActivityById(id);
-			if (activity == null)
-				return NotFound();
-
-			return View(activity);
+			return View(overviewViewModel);
 		}
 
 		public IActionResult StartActivity()
@@ -88,6 +97,19 @@ namespace SchoolActivation.Controllers
 				return RedirectToAction("Index");
 			}
 			return View(activity);
+		}
+
+		public IActionResult Report()
+		{
+			var activities = _activityRepository.GetAllActivities().OrderByDescending(p => p.Date);
+
+			var activityViewModel = new ActivityViewModel()
+			{
+				Activities = activities.ToList(),
+				Title = "Milo School Acitvation Full Report 2019"
+			};
+
+			return View(activityViewModel);
 		}
 	}
 }

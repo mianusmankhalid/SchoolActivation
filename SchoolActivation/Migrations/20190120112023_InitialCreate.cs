@@ -23,18 +23,18 @@ namespace SchoolActivation.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     Football = table.Column<int>(nullable: false),
-                    FootballDistributed = table.Column<string>(nullable: true),
+                    FootballDistributed = table.Column<int>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: true),
                     InstituteName = table.Column<string>(nullable: false),
                     IsCanteen = table.Column<bool>(nullable: false),
                     IsCoach = table.Column<bool>(nullable: false),
                     IsFootballTeam = table.Column<bool>(nullable: false),
                     Packs = table.Column<int>(nullable: false),
-                    Participation = table.Column<string>(nullable: true),
+                    Participation = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
-                    StrengthOfStudent = table.Column<string>(nullable: true),
+                    StrengthOfStudent = table.Column<int>(nullable: false),
                     WristBand = table.Column<int>(nullable: false),
-                    WristBandDistributed = table.Column<string>(nullable: true)
+                    WristBandDistributed = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

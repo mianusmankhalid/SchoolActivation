@@ -11,7 +11,7 @@ using System;
 namespace SchoolActivation.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190120061815_InitialCreate")]
+    [Migration("20190120112023_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,7 +204,7 @@ namespace SchoolActivation.Migrations
 
                     b.Property<int>("Football");
 
-                    b.Property<string>("FootballDistributed");
+                    b.Property<int>("FootballDistributed");
 
                     b.Property<string>("ImageUrl");
 
@@ -219,15 +219,15 @@ namespace SchoolActivation.Migrations
 
                     b.Property<int>("Packs");
 
-                    b.Property<string>("Participation");
+                    b.Property<int>("Participation");
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<string>("StrengthOfStudent");
+                    b.Property<int>("StrengthOfStudent");
 
                     b.Property<int>("WristBand");
 
-                    b.Property<string>("WristBandDistributed");
+                    b.Property<int>("WristBandDistributed");
 
                     b.HasKey("Id");
 

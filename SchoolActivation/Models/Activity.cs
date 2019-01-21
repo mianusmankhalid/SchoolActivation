@@ -26,10 +26,10 @@ namespace SchoolActivation.Models
 		[Required]
 		public int WristBand { get; set; }
 		public string ImageUrl { get; set; }
-		public string StrengthOfStudent { get; set; }
-		public string Participation { get; set; }
-		public string WristBandDistributed { get; set; }
-		public string FootballDistributed { get; set; }
+		public int StrengthOfStudent { get; set; }
+		public int Participation { get; set; }
+		public int WristBandDistributed { get; set; }
+		public int FootballDistributed { get; set; }
 		public bool IsCanteen { get; set; }
 		public bool IsFootballTeam { get; set; }
 		public bool IsCoach { get; set; }

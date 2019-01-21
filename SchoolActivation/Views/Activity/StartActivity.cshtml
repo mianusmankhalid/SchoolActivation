@@ -11,10 +11,10 @@
 			<!-- form start -->
 			<form asp-action="StartActivity" method="post" role="form">
 				<div class="box-body">
-					<input asp-for="Participation" type="hidden" />
-					<input asp-for="StrengthOfStudent" type="hidden" />
-					<input asp-for="FootballDistributed" type="hidden" />
-					<input asp-for="WristBandDistributed" type="hidden" />
+					<input asp-for="Participation" type="hidden" value="0" />
+					<input asp-for="StrengthOfStudent" type="hidden" value="0" />
+					<input asp-for="FootballDistributed" type="hidden" value="0" />
+					<input asp-for="WristBandDistributed" type="hidden" value="0" />
 					<div class="form-group">
 						<label asp-for="ActivityId">ID</label>
 						<input asp-for="ActivityId" class="form-control" />
